@@ -20,21 +20,75 @@
   padding: var(--spacing-xl);
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
-  transition: var(--transition);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   border-top: 4px solid var(--accent-color);
   display: flex;
   flex-direction: column;
+  animation: fadeInUp 0.6s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
+  transition: right 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+}
+
+.testimonial-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.testimonial-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.testimonial-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.testimonial-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.testimonial-card:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.testimonial-card:nth-child(6) {
+  animation-delay: 0.6s;
 }
 
 .testimonial-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--box-shadow-lg);
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(30, 60, 114, 0.2);
+}
+
+.testimonial-card:hover::before {
+  right: -50%;
 }
 
 .testimonial-rating {
   font-size: 1.2rem;
   margin-bottom: var(--spacing-md);
   letter-spacing: 2px;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+  animation: starPop 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  animation-delay: 0.2s;
+  animation-fill-mode: both;
+}
+
+.testimonial-card:hover .testimonial-rating {
+  transform: scale(1.2) rotate(5deg);
+  filter: drop-shadow(0 0 10px rgba(255, 107, 53, 0.6));
 }
 
 .testimonial-content {
@@ -44,23 +98,67 @@
   flex-grow: 1;
   line-height: 1.8;
   font-size: 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.testimonial-card:hover .testimonial-content {
+  color: var(--dark-color);
+  transform: translateY(-3px);
 }
 
 .testimonial-author {
   border-top: 1px solid var(--light-color);
   padding-top: var(--spacing-md);
+  position: relative;
+  z-index: 2;
 }
 
 .testimonial-author h4 {
   font-size: 1.1rem;
   color: var(--dark-color);
   margin-bottom: 0.25rem;
+  transition: all 0.3s ease;
+}
+
+.testimonial-card:hover .testimonial-author h4 {
+  color: var(--accent-color);
+  transform: translateX(5px);
 }
 
 .testimonial-author p {
   color: var(--secondary-color);
   font-size: 0.9rem;
   font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.testimonial-card:hover .testimonial-author p {
+  color: var(--primary-color);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes starPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 /* Owner Section Styles */
@@ -70,6 +168,21 @@
   background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
   border-radius: var(--border-radius);
   color: white;
+  animation: slideInUp 0.8s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.owner-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .owner-content {
@@ -77,12 +190,15 @@
   grid-template-columns: 1fr 2fr;
   gap: var(--spacing-xxl);
   align-items: center;
+  position: relative;
+  z-index: 2;
 }
 
 .owner-image-container {
   position: relative;
   display: flex;
   justify-content: center;
+  animation: fadeInScale 0.6s ease-out;
 }
 
 .owner-image {
@@ -92,11 +208,46 @@
   object-fit: cover;
   border: 4px solid var(--accent-color);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  transition: var(--transition);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: popIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.2s both;
 }
 
 .owner-image:hover {
-  transform: scale(1.05);
+  transform: scale(1.08) rotate(3deg);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
 .owner-badge {

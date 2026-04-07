@@ -4,6 +4,7 @@
   background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
   position: relative;
   overflow: hidden;
+  animation: fadeIn 0.8s ease-out;
 }
 
 .cta::before {
@@ -16,6 +17,7 @@
   top: -200px;
   right: -200px;
   z-index: 0;
+  animation: float 8s ease-in-out infinite;
 }
 
 .cta::after {
@@ -28,6 +30,7 @@
   bottom: -150px;
   left: -150px;
   z-index: 0;
+  animation: float-reverse 10s ease-in-out infinite;
 }
 
 .cta-container {
@@ -49,12 +52,25 @@
   padding: var(--spacing-xl);
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow-lg);
+  animation: slideInLeft 0.6s ease-out 0.2s both;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.cta-form:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
 }
 
 .cta-form h3 {
   font-size: 1.5rem;
   color: var(--dark-color);
   margin-bottom: var(--spacing-lg);
+  transition: all 0.3s ease;
+}
+
+.cta-form:hover h3 {
+  color: var(--primary-color);
+  transform: translateX(10px);
 }
 
 .cta-form form {
@@ -71,7 +87,21 @@
   border-radius: 5px;
   font-family: inherit;
   font-size: 1rem;
-  transition: var(--transition);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  background: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-form input::placeholder,
+.cta-form textarea::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+  transition: color 0.3s ease;
+}
+
+.cta-form input:focus::placeholder,
+.cta-form textarea:focus::placeholder {
+  color: rgba(0, 0, 0, 0.3);
 }
 
 .cta-form input:focus,
@@ -89,12 +119,19 @@
 
 .cta-info {
   color: white;
+  animation: slideInRight 0.6s ease-out 0.2s both;
 }
 
 .cta-info h3 {
   font-size: 1.5rem;
   margin-bottom: var(--spacing-lg);
   color: white;
+  transition: all 0.3s ease;
+}
+
+.cta-info h3:hover {
+  color: var(--accent-color);
+  transform: translateX(10px);
 }
 
 .cta-info ul {
@@ -107,10 +144,34 @@
   padding: 10px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 1.05rem;
+  transition: all 0.3s ease;
+  padding-left: 0;
+  position: relative;
+}
+
+.cta-info li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+  font-weight: bold;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+}
+
+.cta-info li:hover::before {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .cta-info li:last-child {
   border-bottom: none;
+}
+
+.cta-info li:hover {
+  color: var(--accent-color);
+  transform: translateX(15px);
 }
 
 .contact-methods {
@@ -118,6 +179,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: var(--spacing-lg);
   margin-top: var(--spacing-xl);
+  animation: slideInUp 0.6s ease-out 0.3s both;
 }
 
 .contact-method {
@@ -126,7 +188,45 @@
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   text-align: center;
-  transition: var(--transition);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: fadeInUp 0.5s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-method:nth-child(1) {
+  animation-delay: 0.4s;
+}
+
+.contact-method:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.contact-method:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.contact-method::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+  pointer-events: none;
+}
+
+.contact-method:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-10px) scale(1.05);
+  border-color: var(--accent-color);
+  box-shadow: 0 15px 40px rgba(255, 107, 53, 0.2);
+}
+
+.contact-method:hover::before {
+  left: 100%;
 }
 
 .contact-method:hover {
@@ -138,17 +238,39 @@
   font-size: 2rem;
   display: block;
   margin-bottom: 10px;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  z-index: 2;
+}
+
+.contact-method:hover .icon {
+  transform: scale(1.3) rotate(360deg);
+  filter: drop-shadow(0 0 15px rgba(255, 107, 53, 0.6));
 }
 
 .contact-method p {
   margin: 0;
   color: rgba(255, 255, 255, 0.95);
   font-size: 0.95rem;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.contact-method:hover p {
+  transform: translateY(-3px);
 }
 
 .contact-method a {
   color: var(--accent-color);
   font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.contact-method a:hover {
+  transform: scale(1.1);
+  text-shadow: 0 0 10px rgba(255, 107, 53, 0.5);
 }
 
 /* Responsive Design */
@@ -192,4 +314,68 @@
     grid-template-columns: 1fr;
     margin-top: var(--spacing-lg);
   }
+}
+
+/* Additional Animations */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes float-reverse {
+  0%, 100% { transform: translateY(-20px); }
+  50% { transform: translateY(0px); }
 }

@@ -1,6 +1,8 @@
 /* Hero Section Styles */
 .hero {
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  background: linear-gradient(135deg, rgba(30, 60, 114, 0.85) 0%, rgba(42, 82, 152, 0.85) 100%),
+              url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&h=1080&fit=crop') center/cover no-repeat;
+  background-attachment: fixed;
   color: white;
   padding: var(--spacing-xxl) var(--spacing-lg);
   min-height: 600px;
@@ -15,11 +17,13 @@
   position: absolute;
   width: 400px;
   height: 400px;
-  background: rgba(255, 107, 53, 0.1);
+  background: rgba(255, 107, 53, 0.15);
   border-radius: 50%;
   top: -100px;
   right: -100px;
-  z-index: 0;
+  z-index: 1;
+  animation: float 6s ease-in-out infinite;
+  backdrop-filter: blur(10px);
 }
 
 .hero::after {
@@ -27,11 +31,32 @@
   position: absolute;
   width: 300px;
   height: 300px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.08);
   border-radius: 50%;
   bottom: -50px;
   left: -50px;
-  z-index: 0;
+  z-index: 1;
+  animation: float-reverse 8s ease-in-out infinite;
+  backdrop-filter: blur(10px);
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes float-reverse {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(20px);
+  }
 }
 
 .hero-container {
@@ -52,6 +77,13 @@
   line-height: 1.2;
   margin-bottom: var(--spacing-md);
   color: white;
+  animation: slideInDown 0.8s ease-out;
+  transition: all 0.3s ease;
+}
+
+.hero-content h1:hover {
+  transform: scale(1.02) translateY(-5px);
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .hero-content h2 {
@@ -59,6 +91,13 @@
   color: var(--accent-color);
   margin-bottom: var(--spacing-lg);
   font-weight: 700;
+  animation: slideInUp 0.8s ease-out 0.2s both;
+  transition: all 0.3s ease;
+}
+
+.hero-content h2:hover {
+  animation: swing 0.6s ease-in-out;
+  filter: brightness(1.1);
 }
 
 .hero-content > p {
@@ -66,6 +105,64 @@
   margin-bottom: var(--spacing-lg);
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.95);
+  animation: fadeIn 0.8s ease-out 0.4s both;
+  transition: all 0.3s ease;
+}
+
+.hero-content > p:hover {
+  transform: translateX(5px);
+  color: white;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Text Animations */
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes swing {
+  20% {
+    transform: rotate(15deg);
+  }
+  40% {
+    transform: rotate(-10deg);
+  }
+  60% {
+    transform: rotate(5deg);
+  }
+  80% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 .hero-cta {
@@ -73,6 +170,7 @@
   gap: var(--spacing-md);
   margin-bottom: var(--spacing-xxl);
   flex-wrap: wrap;
+  animation: fadeIn 0.8s ease-out 0.6s both;
 }
 
 .hero-cta button {
@@ -80,34 +178,89 @@
   font-size: 1.1rem;
   border-radius: 30px;
   font-weight: 600;
-  transition: var(--transition);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  animation: popIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.8s both;
+}
+
+.hero-cta button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.hero-cta button:hover::before {
+  left: 100%;
 }
 
 .hero-cta .btn-primary {
   background: var(--accent-color);
   box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
+  color: white;
 }
 
 .hero-cta .btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(255, 107, 53, 0.4);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(255, 107, 53, 0.5);
+  animation: pulse 0.6s ease;
+}
+
+.hero-cta .btn-primary:active {
+  transform: translateY(-2px) scale(0.98);
 }
 
 .hero-cta .btn-secondary {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.15);
   color: white;
   border: 2px solid white;
+  backdrop-filter: blur(10px);
 }
 
 .hero-cta .btn-secondary:hover {
   background: white;
   color: var(--primary-color);
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
+}
+
+.hero-cta .btn-secondary:active {
+  transform: scale(0.98);
+}
+
+/* Button Animations */
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 15px 35px rgba(255, 107, 53, 0.5);
+  }
+  50% {
+    box-shadow: 0 15px 55px rgba(255, 107, 53, 0.8);
+  }
 }
 
 .hero-stats {
   display: flex;
   gap: var(--spacing-xl);
   flex-wrap: wrap;
+  animation: fadeIn 0.8s ease-out 0.6s both;
 }
 
 .hero-stats .stat {
@@ -115,18 +268,76 @@
   padding: var(--spacing-md);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+  animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.hero-stats .stat:nth-child(1) {
+  animation-delay: 0.7s;
+}
+
+.hero-stats .stat:nth-child(2) {
+  animation-delay: 0.8s;
+}
+
+.hero-stats .stat:nth-child(3) {
+  animation-delay: 0.9s;
+}
+
+.hero-stats .stat:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: var(--accent-color);
+  transform: translateY(-10px) scale(1.08);
+  box-shadow: 0 15px 40px rgba(255, 107, 53, 0.3);
 }
 
 .hero-stats .stat h3 {
   font-size: 2rem;
   color: var(--accent-color);
   margin: 0;
+  transition: all 0.3s ease;
+  animation: countUp 1s ease-out 1.2s both;
+}
+
+.hero-stats .stat:hover h3 {
+  font-size: 2.3rem;
+  text-shadow: 0 0 20px rgba(255, 107, 53, 0.6);
 }
 
 .hero-stats .stat p {
   color: rgba(255, 255, 255, 0.9);
   font-size: 0.95rem;
   margin-top: 5px;
+  transition: all 0.3s ease;
+}
+
+.hero-stats .stat:hover p {
+  color: white;
+  transform: translateX(5px);
+}
+
+/* Stats Animations */
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero-image {
@@ -193,19 +404,60 @@
 @media (max-width: 768px) {
   .hero {
     padding: var(--spacing-lg) var(--spacing-md);
-    min-height: 400px;
+    min-height: 500px;
+    background-attachment: fixed;
+    position: relative;
+  }
+
+  /* Add animated background overlay for mobile */
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><rect x="0" y="0" width="50" height="50" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/></pattern></defs><rect width="1200" height="600" fill="none"/><rect width="1200" height="600" fill="url(%23grid)"/></svg>');
+    background-repeat: repeat;
+    opacity: 0.5;
+    animation: slideBackground 15s linear infinite;
+    z-index: 0;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 150%;
+    background: radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(42, 82, 152, 0.1) 0%, transparent 50%);
+    animation: floatBackground 20s ease-in-out infinite;
+    z-index: 0;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-container {
+    position: relative;
+    z-index: 1;
   }
 
   .hero-content h1 {
     font-size: 2rem;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   }
 
   .hero-content h2 {
     font-size: 1.4rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 
   .hero-content > p {
     font-size: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 
   .hero-cta {
@@ -222,15 +474,80 @@
 }
 
 @media (max-width: 480px) {
+  .hero {
+    min-height: 450px;
+  }
+
   .hero-content h1 {
     font-size: 1.5rem;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   }
 
   .hero-content h2 {
     font-size: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 
   .hero-stats .stat h3 {
     font-size: 1.5rem;
+  }
+}
+
+/* Animations for mobile background */
+@keyframes slideBackground {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(50px);
+  }
+}
+
+@keyframes floatBackground {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-10px, -10px);
+  }
+  50% {
+    transform: translate(-20px, 0);
+  }
+  75% {
+    transform: translate(-10px, 10px);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply fade-in animation to hero content on mobile */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+  }
+
+  .hero-content h2 {
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+  }
+
+  .hero-content > p {
+    animation: fadeInUp 0.8s ease-out 0.6s both;
+  }
+
+  .hero-cta {
+    animation: fadeInUp 0.8s ease-out 0.8s both;
+  }
+
+  .hero-stats {
+    animation: fadeInUp 0.8s ease-out 1s both;
   }
 }

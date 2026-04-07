@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import '../styles/Header.css';
+import NRLogo from '../assets/NRLogo.svg';
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -18,8 +19,11 @@ export default function Header() {
     <header className="header">
       <div className="header-container">
         <div className="logo">
-          <h1>NR Invisible Grills</h1>
-          <p>Premium Safety Solutions</p>
+          <img src={NRLogo} alt="NR Invisible Grills Logo" className="logo-img" />
+          <div className="logo-text">
+            <h1>NR Invisible Grills</h1>
+            <p>Premium Safety Solutions</p>
+          </div>
         </div>
         
         <button className="mobile-menu-btn" onClick={toggleMenu}>
