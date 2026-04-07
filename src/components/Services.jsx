@@ -5,38 +5,38 @@ export default function Services() {
     {
       id: 1,
       title: 'Balcony Invisible Grills',
-      description: 'Premium invisible grills for balconies with unobstructed views and maximum safety for your family.',
-      features: ['400+ kg capacity', 'Marine grade steel', 'UV resistant']
+      description: 'Premium invisible safety grills for balconies with unobstructed views. Transparent nylon nets, 25+ years durability, rust-proof stainless steel. Perfect for bird control and child protection.',
+      features: ['400+ kg capacity', 'Marine grade steel', 'UV resistant', 'Pigeon & cat proof']
     },
     {
       id: 2,
       title: 'Window Safety Grills',
-      description: 'Protect your windows with invisible grills that blend seamlessly with your home architecture.',
-      features: ['Easy installation', 'Clean appearance', 'Weather resistant']
+      description: 'Modern window safety grills that blend seamlessly with architecture. Transparent protective nets for families, waterproof and weather-resistant installation.',
+      features: ['Easy installation', 'Clean appearance', 'Weather resistant', 'All sizes available']
     },
     {
       id: 3,
-      title: 'Children Safety Solutions',
-      description: 'Specially designed invisible grills to protect children and pets without compromising the view.',
-      features: ['Chemical-free', 'Safe materials', 'Customizable spacing']
+      title: 'Children & Pet Safety',
+      description: 'Child-proof and pet-proof invisible grills using chemical-free materials. Transparent nets ensure children and cats are protected while maintaining clear views.',
+      features: ['100% chemical-free', 'Safe materials', 'Customizable spacing', 'Family approved']
     },
     {
       id: 4,
-      title: 'Bird Control Services',
-      description: 'Invisible bird control systems to keep your space safe while maintaining the aesthetic appeal.',
-      features: ['Non-harmful', 'Effective', 'Maintenance-free']
+      title: 'Bird Control Solutions',
+      description: 'Professional bird control nets for pigeon, crow, and parrot protection. Non-harmful, eco-friendly solution for balcony bird netting without affecting aesthetics.',
+      features: ['Non-harmful to birds', 'Effective control', 'Maintenance-free', 'Invisible design']
     },
     {
       id: 5,
-      title: 'Bird Net Services',
-      description: 'Professional bird net installation for comprehensive protection with excellent visibility.',
-      features: ['Expert installation', 'Durable netting', 'Quick service']
+      title: 'Professional Installation',
+      description: 'Expert installation of invisible netting systems across Bangalore, Vizag, and Vijayawada. Fast service, quality guarantee, professional teams.',
+      features: ['Expert technicians', 'Quick installation', 'Quality assured', 'All locations']
     },
     {
       id: 6,
       title: 'Custom Design Solutions',
-      description: 'Tailored invisible grill solutions designed specifically for your unique architectural needs.',
-      features: ['2", 3", 4" spacing', 'Custom colors', 'Professional design']
+      description: 'Tailored invisible grill designs for unique architectural needs. 2", 3", 4" spacing options, custom colors, professional consultation for your home.',
+      features: ['Custom spacing', 'Color options', 'Design consultation', 'Premium quality']
     }
   ];
 

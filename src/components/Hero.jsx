@@ -6,9 +6,9 @@ export default function Hero() {
     <section id="hero" className="hero">
       <div className="hero-container">
         <div className="hero-content">
-          <h1>Elevate Your Space With Sleek Security</h1>
-          <h2>NR Invisible Grills Bangalore</h2>
-          <p>Unobstructed Views, Uncompromised Safety - Transform Your Home with Innovative Invisible Grills</p>
+          <h1>Premium Invisible Grills in Bangalore - Safety with Style</h1>
+          <h2>Best Invisible Safety Grills for Balconies, Windows & Bird Control</h2>
+          <p>Transparent safety nets for child protection, pet safety, and bird control. Unobstructed views with maximum security. Professional installation of invisible grills across Bangalore, Vizag & Vijayawada.</p>
           <div className="hero-cta">
             <button className="btn-primary">
               <a href="tel:+919000888367">Get Free Estimate</a>
