@@ -12,8 +12,28 @@
   overflow: hidden;
 }
 
+/* Mobile Background Enhancement */
+@media (max-width: 768px) {
+  .hero {
+    background: linear-gradient(135deg, rgba(30, 60, 114, 0.55) 0%, rgba(42, 82, 152, 0.55) 100%),
+                url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1280&h=720&fit=crop') center/cover no-repeat;
+    background-attachment: scroll;
+    padding: var(--spacing-xl) var(--spacing-md);
+    min-height: 500px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    background: linear-gradient(135deg, rgba(30, 60, 114, 0.50) 0%, rgba(42, 82, 152, 0.50) 100%),
+                url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop') center/cover no-repeat;
+    background-attachment: scroll;
+    min-height: 450px;
+  }
+}
+
 .hero::before {
-  content: '';
+  /* content: ''; */
   position: absolute;
   width: 400px;
   height: 400px;
@@ -27,7 +47,7 @@
 }
 
 .hero::after {
-  content: '';
+  /* content: '; */
   position: absolute;
   width: 300px;
   height: 300px;
@@ -405,59 +425,56 @@
   .hero {
     padding: var(--spacing-lg) var(--spacing-md);
     min-height: 500px;
-    background-attachment: fixed;
+    background-attachment: scroll;
     position: relative;
   }
 
-  /* Add animated background overlay for mobile */
+  /* Reduce overlay opacity on mobile for better background visibility */
   .hero::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><rect x="0" y="0" width="50" height="50" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/></pattern></defs><rect width="1200" height="600" fill="none"/><rect width="1200" height="600" fill="url(%23grid)"/></svg>');
-    background-repeat: repeat;
-    opacity: 0.5;
-    animation: slideBackground 15s linear infinite;
-    z-index: 0;
+    width: 250px;
+    height: 250px;
+    top: -80px;
+    right: -80px;
+    background: rgba(255, 107, 53, 0.12);
+    animation: float 6s ease-in-out infinite;
+    opacity: 1;
   }
 
   .hero::after {
-    content: '';
-    position: absolute;
-    width: 200%;
-    height: 150%;
-    background: radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 50%, rgba(42, 82, 152, 0.1) 0%, transparent 50%);
-    animation: floatBackground 20s ease-in-out infinite;
-    z-index: 0;
+    width: 200px;
+    height: 200px;
+    bottom: -60px;
+    left: -60px;
+    background: rgba(255, 255, 255, 0.06);
+    animation: float-reverse 8s ease-in-out infinite;
+    opacity: 1;
   }
 
   .hero-content {
     position: relative;
-    z-index: 1;
+    z-index: 2;
   }
 
   .hero-container {
     position: relative;
-    z-index: 1;
+    z-index: 2;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
   }
 
   .hero-content h1 {
     font-size: 2rem;
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   }
 
   .hero-content h2 {
     font-size: 1.4rem;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
   }
 
   .hero-content > p {
     font-size: 1rem;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   }
 
   .hero-cta {
@@ -476,16 +493,35 @@
 @media (max-width: 480px) {
   .hero {
     min-height: 450px;
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+
+  .hero::before {
+    width: 200px;
+    height: 200px;
+    top: -60px;
+    right: -60px;
+  }
+
+  .hero::after {
+    width: 150px;
+    height: 150px;
+    bottom: -40px;
+    left: -40px;
   }
 
   .hero-content h1 {
     font-size: 1.5rem;
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   }
 
   .hero-content h2 {
     font-size: 1rem;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  }
+
+  .hero-content > p {
+    font-size: 0.9rem;
   }
 
   .hero-stats .stat h3 {
