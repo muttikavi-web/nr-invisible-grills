@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="footer-container">
         <div className="footer-content">
           <div className="footer-section">
-            <h3>About Us</h3>
+            <h3>About Us.</h3>
             <p>NR Invisible Grills is one of the top manufacturers of premium invisible grills in India, providing innovative safety solutions for modern homes.</p>
             <div className="social-links">
               <a href="https://facebook.com/NRinvisiblegrill" target="_blank" rel="noopener noreferrer">Facebook</a>
