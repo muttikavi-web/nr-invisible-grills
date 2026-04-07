@@ -1,0 +1,25 @@
+# robots.txt for NR Invisible Grills Website
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: *.json$
+Disallow: *.js$
+Disallow: *.css$
+
+# Crawl Delay
+Crawl-delay: 1
+
+# Google Specific
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bing Specific
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Sitemap Location
+Sitemap: https://nrinvisiblegrill.com/sitemap.xml

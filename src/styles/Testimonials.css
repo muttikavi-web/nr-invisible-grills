@@ -1,0 +1,222 @@
+/* Testimonials Section Styles */
+.testimonials {
+  padding: var(--spacing-xxl) var(--spacing-lg);
+  background: var(--light-color);
+}
+
+.testimonials-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--spacing-xl);
+}
+
+.testimonial-card {
+  background: white;
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+  border-top: 4px solid var(--accent-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--box-shadow-lg);
+}
+
+.testimonial-rating {
+  font-size: 1.2rem;
+  margin-bottom: var(--spacing-md);
+  letter-spacing: 2px;
+}
+
+.testimonial-content {
+  color: var(--text-color);
+  font-style: italic;
+  margin-bottom: var(--spacing-lg);
+  flex-grow: 1;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.testimonial-author {
+  border-top: 1px solid var(--light-color);
+  padding-top: var(--spacing-md);
+}
+
+.testimonial-author h4 {
+  font-size: 1.1rem;
+  color: var(--dark-color);
+  margin-bottom: 0.25rem;
+}
+
+.testimonial-author p {
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Owner Section Styles */
+.owner-section {
+  margin-top: var(--spacing-xxl);
+  padding: var(--spacing-xxl);
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  border-radius: var(--border-radius);
+  color: white;
+}
+
+.owner-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--spacing-xxl);
+  align-items: center;
+}
+
+.owner-image-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.owner-image {
+  width: 300px;
+  height: 350px;
+  border-radius: var(--border-radius);
+  object-fit: cover;
+  border: 4px solid var(--accent-color);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: var(--transition);
+}
+
+.owner-image:hover {
+  transform: scale(1.05);
+}
+
+.owner-badge {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent-color);
+  color: white;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.owner-info h3 {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-md);
+  color: white;
+}
+
+.owner-title {
+  font-size: 1.3rem;
+  color: var(--accent-color);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.owner-company {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: var(--spacing-lg);
+  font-weight: 500;
+}
+
+.owner-message {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: var(--spacing-lg);
+}
+
+.owner-credentials {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+}
+
+.credential {
+  font-size: 1rem;
+  color: white;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .testimonials {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+
+  .testimonials-grid {
+    gap: var(--spacing-lg);
+  }
+
+  .testimonial-card {
+    padding: var(--spacing-lg);
+  }
+
+  .owner-content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .owner-image {
+    width: 250px;
+    height: 300px;
+  }
+
+  .owner-info h3 {
+    font-size: 1.5rem;
+  }
+
+  .owner-title {
+    font-size: 1.1rem;
+  }
+
+  .owner-message {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .owner-section {
+    padding: var(--spacing-lg);
+  }
+
+  .owner-image {
+    width: 200px;
+    height: 250px;
+  }
+
+  .owner-info h3 {
+    font-size: 1.3rem;
+  }
+
+  .owner-badge {
+    font-size: 0.75rem;
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+
+  .owner-credentials {
+    gap: var(--spacing-sm);
+  }
+
+  .credential {
+    font-size: 0.9rem;
+  }
+}
