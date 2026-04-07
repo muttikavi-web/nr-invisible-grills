@@ -1,7 +1,17 @@
+import { useState } from 'react';
 import '../styles/Hero.css';
 import heroImg from '../assets/NRSecureProfile.jpg';
 
 export default function Hero() {
+  const [showLearnMore, setShowLearnMore] = useState(false);
+
+  const scrollToFeatures = () => {
+    const element = document.getElementById('features');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="hero" className="hero">
       <div className="hero-container">
@@ -13,7 +23,9 @@ export default function Hero() {
             <button className="btn-primary">
               <a href="tel:+919000888367">Get Free Estimate</a>
             </button>
-            <button className="btn-secondary">Learn More</button>
+            <button className="btn-secondary" onClick={scrollToFeatures}>
+              Learn More ↓
+            </button>
           </div>
           <div className="hero-stats">
             <div className="stat">
